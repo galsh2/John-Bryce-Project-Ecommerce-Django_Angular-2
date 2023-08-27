@@ -1,0 +1,16 @@
+<div *ngIf="orders.length === 0; else orderList">
+  <p>Data is null - you don't have an order.</p>
+</div>
+
+<ng-template #orderList>
+  <div *ngFor="let order of orders">
+    <h2>Order #{{order.order_id}} - {{order.created_at}}</h2>
+    <p>Total Price: {{order.total_price}}</p>
+
+    <ul>
+      <li *ngFor="let item of order.items">
+        {{item.product_name}} x {{item.quantity}} - {{item.price * item.quantity}}
+      </li>
+    </ul>
+  </div>
+</ng-template>

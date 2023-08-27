@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let product of products">
+      <!-- <div class="card" style="width: 14rem;"> -->
+        <div class="card custom-card">
+        <div class="card-img-container">
+          <img src="http://localhost:8000/{{product.product_picture}}" alt="{{ product.name }}'s Product Picture" class="card-img-top" style="max-width: 200px;">
+        </div>
+        <div class="card-text">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p>{{ product.category_type }}</p>
+          <p>{{ product.description }}</p>
+          <p>{{ product.price }}$</p>
+          <button (click)="addToCart(product)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div *ngFor="let product of products">
+    <h2>{{ product.name }}</h2>
+    <p><img [src]="'http://localhost:8000/' + product.product_picture" alt="{{ product.name }}'s Product Picture" width="300"></p>
+    <p>{{ product.price }}</p>
+    <button (click)="addToCart(product)">Add to Cart</button>
+  </div> -->
+<!-- </div> -->
+<div class="nested">
+<!-- <div class="row-3"> -->
+  <!-- <div class="col-3"> -->
+  <div class="card" style="width: 14rem;" *ngFor="let product of products">
+    <div class="card-img-container">
+    <img src="http://localhost:8000/{{product.product_picture}}" alt="{{ product.name }}'s Product Picture"  class="card-img-top" style="max-width: 200px;">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      <p>{{ product.category_type }}</p>
+      <p>{{ product.description }}</p>
+      <p>{{ product.price }}$</p>
+      <button (click)="addToCart(product)">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+  <!-- <div class="card" style="width: 18rem;" *ngFor="let product of products">
+    <img src="http://localhost:8000/{{product.product_picture}}" alt="{{ product.name }}'s Product Picture" width="80" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5> -->
+      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      <!-- <p>{{ product.price }}$</p>
+      <button (click)="addToCart(product)">Add to Cart</button>
+    </div>
+  </div> -->
+
+
+  .nested{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.custom-card {
+    width: 200px; /* Set the desired width */
+    height: 460px; /* Set the desired height */
+  }
+.custom-card {
+  width: 200px;
+  height: 460px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+}
+
+.card-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img-top {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-text {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.category, .description, .price {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

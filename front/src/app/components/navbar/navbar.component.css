@@ -1,0 +1,40 @@
+/* navbar.component.css */
+.navbar {
+    background-color: #f8f9fa;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item {
+    margin-right: 10px;
+  }
+  
+  .nav-link {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #007bff;
+  }
+  
+  .active {
+    color: #007bff;
+  }

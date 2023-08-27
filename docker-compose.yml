@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  django:
+    build: ./back
+    volumes:
+      - ./back:/usr/src/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DEBUG: 1
+      SECRET_KEY: my-secret-key
+
+  angular:
+    build: ./front
+    ports:
+      - "80:80"
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password

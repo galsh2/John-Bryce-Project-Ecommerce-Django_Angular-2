@@ -1,0 +1,63 @@
+<div class="prod">
+  <!-- Filter Modal -->
+  <div class="modal" id="filterModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Filter Products</h5>
+        <button type="button" class="close" (click)="closeFilterModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Category Dropdown -->
+        <div>
+          <label for="categoryDropdown">Category: </label>
+          <select id="categoryDropdown" [(ngModel)]="selectedCategory">
+            <option value="">Select a Category</option>
+            <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
+          </select>
+        </div>
+
+        <!-- Brand Dropdown -->
+        <div>
+          <label for="brandDropdown">Brand: </label>
+          <select id="brandDropdown" [(ngModel)]="selectedBrand">
+            <option value="">Select a Brand</option>
+            <option *ngFor="let brand of uniqueBrands" [value]="brand">{{ brand }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="applyFilters()">Apply</button>
+        <button type="button" class="btn btn-primary" (click)="closeFilterModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Button -->
+  <button (click)="openFilterModal()" class="btn btn-secondary mb-3">Filter</button>
+  <input type="text" [(ngModel)]="searchText" (keyup)="filterProducts()" placeholder="Search products" />
+
+  <div *ngIf="searchText && filteredProducts.length === 0">
+    <p>No products found for '{{searchText}}'</p>
+  </div>
+
+  <div *ngIf="!searchText">
+    <!-- You can display a message here or leave it empty if you don't want to show anything when there's no search term -->
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+
+    <div *ngFor="let product of filteredProducts" class="col">
+      <div class="card">
+        <img [src]="'http://localhost:8000/' + product.product_picture" class="card-img-top"
+          alt="{{ product.name }}'s Product Picture">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p>{{ product.category_type }}</p>
+          <p>{{ product.description }}</p>
+          <p class="card-text">{{ product.price }}$</p>
+          <button (click)="addToCart(product)" class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

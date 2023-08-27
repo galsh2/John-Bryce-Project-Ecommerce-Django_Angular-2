@@ -1,0 +1,25 @@
+<div *ngIf="userProfile">
+  <h2>{{ userProfile.first_name }} {{ userProfile.last_name }}</h2>
+  <p>Phone: {{ userProfile.phone }}</p>
+  <p>Address: {{ userProfile.address }}</p>
+  <p>city: {{ userProfile.city }}</p>
+  <p><img [src]="'http://localhost:8000/' + userProfile.profile_picture"
+      alt="{{ userProfile.first_name }}'s Profile Picture" width="300"></p>
+  <!-- Button to show the update form -->
+  <button (click)="showUpdateForm()">Update Profile</button>
+</div>
+
+
+
+<!-- The form will be displayed when showForm is true -->
+<div *ngIf="showForm">
+  <app-postuserprofile></app-postuserprofile>
+  <button (click)="hideUpdateForm()">Cancel</button>
+</div>
+
+<!-- Error message and link to POST form -->
+<div *ngIf="error">
+  <p>The profile data is null.</p>
+  <!-- <a routerLink="/postuserprofile">Click here to create a profile</a> -->
+  <app-postuserprofile></app-postuserprofile>
+</div>

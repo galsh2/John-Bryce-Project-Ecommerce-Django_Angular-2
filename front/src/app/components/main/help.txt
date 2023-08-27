@@ -1,0 +1,45 @@
+    <!-- <div class="container text-center"> -->
+    <div class="container-fluid vh-100">
+        <!-- <div class="row">
+          <div class="col-2">
+            1 of 2
+          </div>
+          <div class="col">
+            2 of 2
+            <p><button (click)="goToLogin()" type="button" class="btn btn-light">Login</button></p>
+            <app-logout></app-logout>
+            <p><button (click)="goToRegister()" type="button" class="btn btn-light">Register</button></p>
+            <p><button (click)="goToProduct()" type="button" class="btn btn-light">Products</button></p>
+          </div>
+        </div> -->
+        <div class="row h-100">
+        <!-- <div class="row max-height-scroll"> -->
+        <!-- <div class="row"> -->
+        <div class="col-3 overflow-auto h-100">
+          <!-- <div class="col-3"> -->
+            1 of 3
+            <app-cart></app-cart>
+          </div>
+          <div class="col-9 overflow-auto h-100">
+          <!-- <div class="col-9"> -->
+            2 of 3
+            <!-- <app-product></app-product> -->
+            <ng-container *ngIf="showLogin">
+                <app-login></app-login>
+              </ng-container>
+              <ng-container *ngIf="showRegister">
+                <app-registertwo></app-registertwo>
+              </ng-container>
+              <!-- <ng-container *ngIf="showProduct">
+                <app-product></app-product>
+            </ng-container> -->
+            <ng-container *ngIf="showProduct && !showLogin && !showRegister">
+                <app-product></app-product>
+              </ng-container>
+              <!-- <app-product></app-product> -->
+          </div>
+          <!-- <div class="col">
+            3 of 3
+          </div> -->
+        </div>
+      </div>

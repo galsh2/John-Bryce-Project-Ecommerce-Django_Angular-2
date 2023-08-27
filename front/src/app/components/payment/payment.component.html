@@ -1,0 +1,6 @@
+<div id="paypal-button-container"></div>
+
+
+<div *ngIf="!authService.isLoggedIn()">
+  <p>You need to be logged in to proceed with payment.</p>
+</div>

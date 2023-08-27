@@ -1,0 +1,40 @@
+<h1>Your Cart:</h1>
+
+<div *ngIf="cart.length > 0">
+  <div *ngFor="let product of cart; let i = index">
+    <div class="card mb-3" style="max-width: 300px;">
+      <div class="row g-0">
+        <div class="col-md-5 d-flex align-items-center">
+          <img [src]="'http://localhost:8000/' + product.img" class="img-fluid rounded-start"
+            [alt]="product.name + ' Product Picture'" width="1000">
+        </div>
+        <div class="col-md-7">
+          <div class="card-body" style="line-height: 1.0;">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">Price: {{ product.price * product.quantity }}</p>
+            <p class="card-text">Quantity: {{ product.quantity }}</p>
+            <button (click)="incrementQuantity(i)">+</button>
+            <button (click)="decrementQuantity(i)" [disabled]="product.quantity <= 1">-</button>
+            <button (click)="removeFromCart(i)">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="card mb-3" style="max-width: 300px;">
+      <div class="row g-0">
+        <div class="col-md-5 d-flex align-items-center">
+          <p class="card-text">Total Price: {{ calculateTotalPrice() }}</p>
+        </div>
+        <div class="col-md-7">
+          <!-- payment button -->
+          <app-payment></app-payment>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="cart.length === 0">
+      <p>Your cart is empty.</p>
+    </div>

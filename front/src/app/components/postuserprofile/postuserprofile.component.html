@@ -1,0 +1,9 @@
+<form (submit)="createProfile()">
+  <input [(ngModel)]="profileData.first_name" placeholder="First Name" name="first_name">
+  <input [(ngModel)]="profileData.last_name" placeholder="Last Name" name="last_name">
+  <input [(ngModel)]="profileData.phone" placeholder="Phone" name="phone">
+  <input [(ngModel)]="profileData.address" placeholder="address" name="address">
+  <input [(ngModel)]="profileData.city" placeholder="city" name="city">
+  <input type="file" (change)="onFileChanged($event)">
+  <button (click)="updateProfile()">Update Profile</button>
+</form>

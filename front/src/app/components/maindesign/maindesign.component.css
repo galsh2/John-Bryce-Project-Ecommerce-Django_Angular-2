@@ -1,0 +1,29 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.max-height-scroll {
+  max-height: calc(100vh - 80px); /* Adjust as needed */
+  overflow-y: auto;
+}
+/* index.css */
+.container {
+    margin-top: 50px; /* Adjust this as needed */
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Define custom styles for the columns */
+  .col {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  /* Define custom styles for the rows */
+  .row {
+    margin-bottom: 200px; /* Adjust this as needed */
+  }
